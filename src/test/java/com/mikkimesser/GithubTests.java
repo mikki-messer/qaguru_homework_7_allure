@@ -27,9 +27,6 @@ public class GithubTests {
         $(".header-search-input").setValue(searchText).pressEnter();
         $(By.linkText(searchText)).click();
         $(By.partialLinkText(tabHeader)).click();
-        //$(By.linkText("С Новым Годом  (2022)")).click();
-        //$("#issue_76_link").click();
-        //$(byAttribute("aria-label*","С Новым Годом  (2022)")).click();
         String issueNameNormalized = issueName.trim().replaceAll(" +", " ");
         System.out.println(issueNameNormalized);
         $(withText(issueNameNormalized)).click();
