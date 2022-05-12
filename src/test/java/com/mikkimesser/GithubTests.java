@@ -9,7 +9,6 @@ import io.qameta.allure.Allure;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
 
 import java.nio.charset.StandardCharsets;
 
@@ -89,6 +88,7 @@ public class GithubTests {
         webSteps.searchForRepository(repository);
         webSteps.openRepository(repository);
         webSteps.openTab(tabHeader);
+        webSteps.searchForEntity(entityName);
         webSteps.checkIsEntityVisible(entityName);
     }
 }
