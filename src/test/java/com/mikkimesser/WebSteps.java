@@ -12,8 +12,8 @@ import static org.openqa.selenium.By.partialLinkText;
 
 public class WebSteps {
     //locators
-    SelenideElement searchInput = $(".header-search-input");
-
+    SelenideElement searchRepoInput = $(".header-search-input");
+    SelenideElement searchEntityInput = $("#js-issues-search");
     //URL
     String pageURL = "https://github.com";
 
@@ -25,7 +25,7 @@ public class WebSteps {
 
     @Step("ищем репозиторий {repo}")
     public void searchForRepository(String repo){
-        searchInput.setValue(repo).pressEnter();
+        searchRepoInput.setValue(repo).pressEnter();
     }
 
     @Step("переходим по ссылке {repo}")
@@ -36,6 +36,12 @@ public class WebSteps {
     @Step("кликаем по табу {tabHeader}")
     public void openTab(String tabHeader){
         $(partialLinkText(tabHeader)).click();
+    }
+
+    @Step("ищем сущность под названием {entityName}")
+    public void searchForEntity(String entityName){
+        searchEntityInput.clear();
+        searchEntityInput.setValue(entityName).pressEnter();
     }
 
     @Step("проверяем видимость сущности под названием {entityName}")
